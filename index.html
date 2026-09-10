@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday Hazooona ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&family=Tajawal:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #FFF0F5;
+            --bg-mid: #FFE4E1;
+            --bg-light: #FADADD;
+            --beige: #FAEBD7;
+            --beige-light: #FFF8DC;
+            --beige-dark: #E6B8B8;
+            --gold: #FF85A2;
+            --gold-light: #FFD1DC;
+            --error: #E57373;
+            --success: #81C784;
+            --text-main: #8B4513;
+            --text-light: #A0522D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-mid) 50%, var(--bg-light) 100%);
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+            color: var(--text-main);
+        }
+
+        #butterflies {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .butterfly {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 1;
+            animation: float 15s infinite ease-in-out;
+            filter: drop-shadow(0 0 5px rgba(255,133,162,0.4));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            25% { transform: translate(30px, -40px) rotate(15deg); }
+            50% { transform: translate(-20px, -80px) rotate(-10deg); opacity: 0.9; }
+            75% { transform: translate(40px, -120px) rotate(20deg); }
+            90% { opacity: 0.6; }
+            100% { transform: translate(0, -200px) rotate(0deg); opacity: 0; }
+        }
+
+        .screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+            overflow-y: auto;
+        }
+
+        .screen.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: scale(1) translateY(0);
+            z-index: 20;
+        }
+
+        .card {
+            background: rgba(255, 250, 250, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid var(--beige-dark);
+            border-radius: 24px;
+            padding: 35px 25px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(139, 69, 19, 0.1), inset 0 1px 0 rgba(255,255,255,0.6);
+            position: relative;
+            overflow: hidden;
+            z-index: 25;
+            margin: auto;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,133,162,0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .arabic-text {
+            font-family: 'Tajawal', 'Reem Kufi', sans-serif;
+            font-size: 1.15em;
+            line-height: 1.9;
+            direction: rtl;
+            color: var(--text-main);
+        }
+
+        .english-text {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+        }
+
+        .btn {
+            background: linear-gradient(145deg, var(--beige), var(--beige-dark));
+            color: var(--text-main);
+            border: none;
+            padding: 14px 45px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.15);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--beige-dark);
+            color: var(--text-light);
+            padding: 10px 30px;
+            font-size: 0.95em;
+        }
+
+        .passcode-display {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        .passcode-dot {
+            width: 55px;
+            height: 55px;
+            border: 2px solid var(--beige-dark);
+            border-radius: 16px;
+            background: rgba(255,255,255,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--gold);
+            transition: all 0.2s;
+        }
+
+        .passcode-dot.filled {
+            background: rgba(255,133,162,0.15);
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(255,133,162,0.2);
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .key {
+            aspect-ratio: 1;
+            border: 2px solid rgba(230, 184, 184, 0.5);
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            color: var(--text-main);
+            font-size: 1.4em;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+            font-family: 'Poppins', sans-serif;
+            user-select: none;
+        }
+
+        .key:hover, .key:active {
+            background: rgba(255,133,162,0.1);
+            border-color: var(--gold);
+            transform: scale(0.95);
+        }
+              /* ===== القطة الأنثوية ===== */
+        .cat-container {
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .cat {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .cat-head {
+            width: 90px;
+            height: 80px;
+            background: linear-gradient(145deg, #FFF5F5, #FFE4E1);
+            border-radius: 45% 45% 40% 40%;
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .cat-ear {
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 25px solid #FFE4E1;
+            position: absolute;
+            top: -15px;
+            transition: all 0.4s ease;
+        }
+
+        .cat-ear.left { left: 10px; transform: rotate(-15deg); }
+        .cat-ear.right { right: 10px; transform: rotate(15deg); }
+
+        .cat-ear::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: -6px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 12px solid #FFB6C1;
+        }
+
+        .cat-eye {
+            width: 14px;
+            height: 14px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: absolute;
+            top: 28px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 8px rgba(255,133,162,0.3);
+        }
+
+        .cat-eye.left { left: 22px; }
+        .cat-eye.right { right: 22px; }
+
+        .cat-eye::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #FFF;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+        }
+
+        .cat-eye::before {
+            content: '⌒';
+            position: absolute;
+            top: -10px;
+            left: -2px;
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: bold;
+        }
+
+        .cat-nose {
+            width: 8px;
+            height: 6px;
+            background: #FF85A2;
+            border-radius: 50%;
+            position: absolute;
+            top: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cat-mouth {
+            width: 20px;
+            height: 10px;
+            border: 2px solid transparent;
+            border-bottom-color: var(--beige-dark);
+            border-radius: 50%;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.4s ease;
+        }
+
+        .cat-mouth::before,
+        .cat-mouth::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 8px;
+            border: 2px solid transparent;
+            border-bottom-color: var(--beige-dark);
+            border-radius: 50%;
+            top: -2px;
+        }
+
+        .cat-mouth::before { left: -8px; }
+        .cat-mouth::after { right: -8px; }
+
+        .cat-body {
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(145deg, #FFF0F5, #FFE4E1);
+            border-radius: 40% 40% 50% 50%;
+            position: absolute;
+            bottom: 0;
+            left: 30px;
+        }
+
+        .cat-paw {
+            width: 16px;
+            height: 12px;
+            background: #FFE4E1;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -5px;
+        }
+
+        .cat-paw.left { left: 35px; }
+        .cat-paw.right { right: 35px; }
+
+        .cat-bow {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            width: 20px;
+            height: 12px;
+            z-index: 10;
+        }
+
+        .cat-bow::before,
+        .cat-bow::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 12px;
+            background: #FF85A2;
+            border-radius: 50% 50% 50% 50%;
+            top: 0;
+        }
+
+        .cat-bow::before { left: 0; transform: rotate(-20deg); }
+        .cat-bow::after { right: 0; transform: rotate(20deg); }
+
+        .cat-bow-center {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #FF69B4;
+            border-radius: 50%;
+            top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 11;
+        }
+
+        .cat-cheek {
+            position: absolute;
+            width: 12px;
+            height: 8px;
+            background: rgba(255, 133, 162, 0.3);
+            border-radius: 50%;
+            top: 42px;
+        }
+
+        .cat-cheek.left { left: 8px; }
+        .cat-cheek.right { right: 8px; }
+
+        .cat.sad .cat-head {
+            background: linear-gradient(145deg, #F5E6E8, #E8D5D5);
+            transform: translateY(5px);
+        }
+
+        .cat.sad .cat-ear {
+            border-bottom-color: #E8D5D5;
+            transform: rotate(-25deg) translateY(5deg);
+        }
+
+        .cat.sad .cat-ear.right {
+            transform: rotate(25deg) translateY(5deg);
+        }
+
+        .cat.sad .cat-eye {
+            height: 3px;
+            border-radius: 2px;
+            background: var(--error);
+            transform: rotate(15deg);
+            box-shadow: none;
+        }
+
+        .cat.sad .cat-eye.right {
+            transform: rotate(-15deg);
+        }
+
+        .cat.sad .cat-eye::after,
+        .cat.sad .cat-eye::before {
+            display: none;
+        }
+
+        .cat.sad .cat-mouth {
+            border-bottom-color: transparent;
+            border-top-color: var(--beige-dark);
+            top: 55px;
+        }
+
+        .tear {
+            position: absolute;
+            width: 6px;
+            height: 10px;
+            background: #81D4FA;
+            border-radius: 50%;
+            top: 35px;
+            opacity: 0;
+            animation: tearDrop 1.5s infinite;
+        }
+
+        .tear.left { left: 18px; }
+        .tear.right { right: 18px; animation-delay: 0.3s; }
+
+        @keyframes tearDrop {
+            0% { opacity: 0; transform: translateY(0) scale(0); }
+            20% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(25px) scale(0.5); }
+        }
+
+        .cat.happy .cat-eye {
+            height: 8px;
+            border-radius: 50% 50% 0 0;
+            background: transparent;
+            border: 3px solid var(--gold);
+            border-bottom: none;
+            box-shadow: none;
+        }
+
+        .cat.happy .cat-eye::after,
+        .cat.happy .cat-eye::before {
+            display: none;
+        }
+
+        .cat.happy .cat-mouth {
+            width: 25px;
+            height: 15px;
+            background: var(--gold);
+            border: none;
+            border-radius: 0 0 25px 25px;
+            top: 52px;
+        }
+
+        .cat.happy .cat-mouth::before,
+        .cat.happy .cat-mouth::after {
+            display: none;
+        }
+
+        /* ===== الصور (بولارويد) ===== */
+        .photos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            min-height: 250px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .polaroid {
+            background: var(--beige-light);
+            padding: 12px 12px 40px 12px;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.12);
+            transition: all 0.4s ease;
+            position: relative;
+            max-width: 160px;
+            z-index: 2;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 10;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+            background: linear-gradient(45deg, #FFE4E1, #FADADD);
+            position: relative;
+            z-index: 2;
+        }
+
+        .layout-side .polaroid:nth-child(1) { transform: rotate(-3deg); }
+        .layout-side .polaroid:nth-child(2) { transform: rotate(3deg); margin-top: 20px; }
+
+        .layout-stack {
+            flex-direction: column;
+        }
+        .layout-stack .polaroid:nth-child(1) { transform: rotate(-2deg) translateX(-10px); }
+        .layout-stack .polaroid:nth-child(2) { transform: rotate(2deg) translateX(10px); margin-top: -30px; }
+
+        .layout-diagonal {
+            position: relative;
+            height: 280px;
+            width: 100%;
+        }
+        .layout-diagonal .polaroid:nth-child(1) { 
+            transform: rotate(-8deg); 
+            position: absolute; 
+            left: 10px; 
+            top: 20px; 
+        }
+        .layout-diagonal .polaroid:nth-child(2) { 
+            transform: rotate(8deg); 
+            position: absolute; 
+            right: 10px; 
+            bottom: 20px; 
+        }
+
+        .layout-center {
+            justify-content: center;
+        }
+        .layout-center .polaroid {
+            transform: rotate(0deg) scale(1.1);
+            max-width: 200px;
+        }
+        .layout-center .polaroid img {
+            height: 180px;
+        }
+
+        .photo-caption {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--gold);
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(139, 69, 19, 0.1);
+        }
+
+        .message-box {
+            max-height: 50vh;
+            overflow-y: auto;
+            padding: 10px;
+            direction: rtl;
+            text-align: right;
+            line-height: 2;
+        }
+
+        .message-box::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .message-box::-webkit-scrollbar-thumb {
+            background: var(--beige-dark);
+            border-radius: 3px;
+        }
+
+        .highlight {
+            color: #D81B60;
+            font-weight: 700;
+        }
+
+        .final-text {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.4em;
+            color: var(--text-light);
+            margin: 10px 0;
+            text-shadow: 0 2px 15px rgba(139, 69, 19, 0.1);
+        }
+
+        .heart-beat {
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.3); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; }
+        .stagger-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; }
+        .stagger-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; }
+
+        .dots-nav {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(139, 69, 19, 0.2);
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--gold);
+            width: 20px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 25px 18px; }
+            .polaroid { max-width: 130px; }
+            .polaroid img { height: 110px; }
+            .layout-center .polaroid { max-width: 170px; }
+            .layout-center .polaroid img { height: 150px; }
+            .layout-diagonal { height: 240px; }
+        }
+    </style>
+</head>
+<body>
+  <!-- فراشات الخلفية -->
+<div id="butterflies"></div>
+
+<!-- ==================== الشاشة 1: المقدمة ==================== -->
+<div class="screen active" id="screen-intro">
+    <div class="card fade-in-up">
+        <div class="cat-container">
+            <div class="cat happy" id="intro-cat">
+                <div class="cat-head">
+                    <div class="cat-ear left"></div>
+                    <div class="cat-ear right"></div>
+                    <div class="cat-eye left"></div>
+                    <div class="cat-eye right"></div>
+                    <div class="cat-nose"></div>
+                    <div class="cat-mouth"></div>
+                    <div class="cat-cheek left"></div>
+                    <div class="cat-cheek right"></div>
+                    <div class="cat-bow"><div class="cat-bow-center"></div></div>
+                </div>
+                <div class="cat-body"></div>
+                <div class="cat-paw left"></div>
+                <div class="cat-paw right"></div>
+            </div>
+        </div>
+        <h2 class="english-text" style="font-size: 1.3em; margin-bottom: 10px;">
+            I made something for you!!<br>
+            You want to see it?!
+        </h2>
+        <button class="btn" onclick="goTo('screen-passcode')">
+            YES!! 
+        </button>
+    </div>
+</div>
+
+<!-- ==================== الشاشة 2: الرقم السري ==================== -->
+<div class="screen" id="screen-passcode">
+    <div class="card">
+        <h3 class="english-text" style="color: var(--gold); font-size: 0.9em; letter-spacing: 2px;">ENTER A PASSCODE</h3>
+        <div class="passcode-display" id="passcode-display">
+            <div class="passcode-dot" id="dot-0"></div>
+            <div class="passcode-dot" id="dot-1"></div>
+            <div class="passcode-dot" id="dot-2"></div>
+        </div>
+        <div class="keypad">
+            <div class="key" onclick="enterDigit(1)">1</div>
+            <div class="key" onclick="enterDigit(2)">2</div>
+            <div class="key" onclick="enterDigit(3)">3</div>
+            <div class="key" onclick="enterDigit(4)">4</div>
+            <div class="key" onclick="enterDigit(5)">5</div>
+            <div class="key" onclick="enterDigit(6)">6</div>
+            <div class="key" onclick="enterDigit(7)">7</div>
+            <div class="key" onclick="enterDigit(8)">8</div>
+            <div class="key" onclick="enterDigit(9)">9</div>
+            <div class="key" style="visibility: hidden;"></div>
+            <div class="key" onclick="enterDigit(0)">0</div>
+            <div class="key" onclick="clearPasscode()" style="font-size: 0.8em;">⌫</div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== الشاشة 3: خطأ ==================== -->
+<div class="screen" id="screen-wrong">
+    <div class="card">
+        <h2 class="english-text" style="color: var(--error); font-size: 1.4em;">
+            WRONG PASSCODE!!
+        </h2>
+        <div class="cat-container">
+            <div class="cat sad" id="wrong-cat">
+                <div class="cat-head">
+                    <div class="cat-ear left"></div>
+                    <div class="cat-ear right"></div>
+                    <div class="cat-eye left"></div>
+                    <div class="cat-eye right"></div>
+                    <div class="cat-nose"></div>
+                    <div class="cat-mouth"></div>
+                    <div class="cat-cheek left"></div>
+                    <div class="cat-cheek right"></div>
+                    <div class="cat-bow"><div class="cat-bow-center"></div></div>
+                    <div class="tear left"></div>
+                    <div class="tear right"></div>
+                </div>
+                <div class="cat-body"></div>
+                <div class="cat-paw left"></div>
+                <div class="cat-paw right"></div>
+            </div>
+        </div>
+        <button class="btn btn-secondary" onclick="retryPasscode()">
+            TRY AGAIN
+        </button>
+    </div>
+</div>
+
+<!-- ==================== الشاشة 4: اللقب ==================== -->
+<div class="screen" id="screen-nickname">
+    <div class="card fade-in-up">
+        <h3 class="english-text" style="color: var(--gold); font-size: 1em; letter-spacing: 3px; margin-bottom: 5px;">
+            FOR YOU <3 <span class="heart-beat">❤️</span>
+        </h3>
+        <h1 style="font-family: 'Poppins', sans-serif; font-size: 2.5em; color: var(--text-main); margin: 15px 0;">
+            Hazoona
+        </h1>
+        <div style="width: 60px; height: 3px; background: var(--gold); margin: 0 auto 20px; border-radius: 2px;"></div>
+        <button class="btn" onclick="goTo('screen-message')">
+            NEXT !!
+        </button>
+    </div>
+</div>
+
+<!-- ==================== الشاشة 5: الرسالة ==================== -->
+<div class="screen" id="screen-message">
+    <div class="card" style="max-width: 450px;">
+        <h3 class="english-text" style="color: var(--gold); margin-bottom: 15px;">
+            Happy Birthday <span class="heart-beat">❤️</span>
+        </h3>
+        <div class="message-box arabic-text">
+            <p>
+                هاابيي بيرثدايي ي بطتيي وعقبال كل أعوامكك تقضيهم بخير وهنا وسعادة وحب وطاعة وراحة بال
+            </p>
+            <p style="margin-top: 10px;">
+                وإن شاء الله يكون عام تحقيق أحلامك وكل إشي ببالك ي <span class="highlight">أجدعع مهندسس</span> وأحلى يزنن ،،
+            </p>
+            <p style="margin-top: 10px;">
+                احمم 🌝 مش محتاج الموضوع أحكيهه بس عامكك هاد هيكون أحلى من كل لقبل لأنك تعرفت عع <span class="highlight">حداا زيي</span> 😂❤️
+            </p>
+            <p style="margin-top: 15px; font-size: 1.1em;">
+                يلل يبروو إنجويي بيومكك يي أحلى هزونن بحياتيي 😂❤️❤️❤️ ❤️✨
+            </p>
+        </div>
+        <button class="btn" onclick="goTo('screen-photos-0')" style="margin-top: 15px;">
+            تشوف الحلويات !🌝😂
+        </button>
+    </div>
+</div>
+
+<!-- ==================== الشاشة 6: الصور 1 ==================== -->
+<div class="screen" id="screen-photos-0">
+    <div class="card" style="max-width: 400px;">
+        <div class="photo-caption">يزن الجميل ❤️</div>
+        <div class="photos-grid layout-side">
+            <div class="polaroid stagger-1">
+                <img src="https://i.imgur.com/y4f9QF0.jpeg" alt="Yazan 1" onerror="this.style.background='linear-gradient(45deg, #FFE4E1, #FADADD)'; this.alt='';">
+            </div>
+            <div class="polaroid stagger-2">
+                <img src="https://i.imgur.com/vWTTu8f.jpeg" alt="Yazan 2" onerror="this.style.background='linear-gradient(45deg, #FFE4E1, #FADADD)'; this.alt='';">
+            </div>
+        </div>
+        <button class="btn" onclick="goTo('screen-photos-1')">
+            تكمل !!
+        </button>
+        <div class="dots-nav">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== الشاشة 7: الصور 2 ==================== -->
+<div class="screen" id="screen-photos-1">
+    <div class="card" style="max-width: 400px;">
+        <div class="photo-caption">البروو اللطيف ❤️</div>
+        <div class="photos-grid layout-stack">
+            <div class="polaroid stagger-1">
+                <img src="https://i.imgur.com/3Mzhx97.jpeg" alt="Yazan 3" onerror="this.style.background='linear-gradient(45deg, #FFE4E1, #FADADD)'; this.alt='';">
+            </div>
+            <div class="polaroid stagger-2">
+                <img src="https://i.imgur.com/PgF4LXf.jpeg" alt="Yazan 4" onerror="this.style.background='linear-gradient(45deg, #FFE4E1, #FADADD)'; this.alt='';">
+            </div>
+        </div>
+        <button class="btn" onclick="goTo('screen-photos-2')">
+            لسااعع فيي 🌝
+        </button>
+        <div class="dots-nav">
+            <div class="dot"></div>
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== الشاشة 8: الصور 3 ==================== -->
+<div class="screen" id="screen-photos-2">
+    <div class="card" style="max-width: 400px;">
+        <div class="photo-caption">أحن يزن ❤️</div>
+        <div class="photos-grid layout-diagonal">
+            <div class="polaroid stagger-1">
+                <img src="https://i.imgur.com/NPrEsZU.jpeg" alt="Yazan 5" onerror="this.style.background='linear-gradient(45deg, #FFE4E1, #FADADD)'; this.alt='';">
+            </div>
+            <div class="polaroid stagger-2">
+                <img src="https://i.imgur.com/zafUUeQ.jpeg" alt="Yazan 6" onerror="this.style.background='linear-gradient(45deg, #FFE4E1, #FADADD)'; this.alt='';">
+            </div>
+        </div>
+        <button class="btn" onclick="goTo('screen-photos-3')">
+            التالي ❤️
+        </button>
+        <div class="dots-nav">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot active"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== الشاشة 9: الصورة السابعة (لك) ==================== -->
+<div class="screen" id="screen-photos-3">
+    <div class="card" style="max-width: 400px;">
+        <div class="photo-caption">أحلى مهندس ❤️</div>
+        <div class="photos-grid layout-center">
+            <div class="polaroid stagger-1">
+                <!-- ⬇️ ضع رابط صورتك السابعة هنا ⬇️ -->
+                <img src="https://i.imgur.com/y4f9QF0.jpeg" alt="Yazan 7" onerror="this.style.background='linear-gradient(45deg, #FFE4E1, #FADADD)'; this.alt='';">
+                <!-- ⬆️ استبدل الرابط أعلاه برابط صورتك ⬆️ -->
+            </div>
+        </div>
+        <button class="btn" onclick="goTo('screen-final')">
+         تشوف ؟
+        </button>
+        <div class="dots-nav">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot active"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== الشاشة 10: الختام ==================== -->
+<div class="screen" id="screen-final">
+    <div class="card fade-in-up" style="text-align: center;">
+        <div class="cat-container" style="margin-bottom: 10px;">
+            <div class="cat happy">
+                <div class="cat-head">
+                    <div class="cat-ear left"></div>
+                    <div class="cat-ear right"></div>
+                    <div class="cat-eye left"></div>
+                    <div class="cat-eye right"></div>
+                    <div class="cat-nose"></div>
+                    <div class="cat-mouth"></div>
+                    <div class="cat-cheek left"></div>
+                    <div class="cat-cheek right"></div>
+                    <div class="cat-bow"><div class="cat-bow-center"></div></div>
+                </div>
+                <div class="cat-body"></div>
+                <div class="cat-paw left"></div>
+                <div class="cat-paw right"></div>
+            </div>
+        </div>
+        <div class="final-text">
+            صنع بحب منن رهوفة ليزونن <span class="heart-beat">❤️✨</span>
+        </div>
+        <div style="width: 50px; height: 2px; background: var(--gold); margin: 15px auto; border-radius: 1px;"></div>
+        <h2 class="english-text" style="color: var(--text-main); font-size: 1.3em;">
+            Happy birthday brooo <span class="heart-beat">❤️✨</span>
+        </h2>
+        <div style="margin-top: 20px; font-size: 2em; animation: fadeInUp 1s ease 0.5s both;">
+            🥺🐣🦆✨
+        </div>
+    </div>
+  </div>
+
+      <script>
+        // ===== إعدادات الفراشات =====
+        function createButterflies() {
+            const container = document.getElementById('butterflies');
+            const colors = ['🦋', '🤍', '✨'];
+            for (let i = 0; i < 15; i++) {
+                const b = document.createElement('div');
+                b.className = 'butterfly';
+                b.innerHTML = colors[Math.floor(Math.random() * colors.length)];
+                b.style.left = Math.random() * 100 + '%';
+                b.style.top = Math.random() * 100 + '%';
+                b.style.animationDelay = Math.random() * 15 + 's';
+                b.style.animationDuration = (10 + Math.random() * 10) + 's';
+                b.style.fontSize = (15 + Math.random() * 20) + 'px';
+                container.appendChild(b);
+            }
+        }
+        createButterflies();
+
+        // ===== التنقل بين الشاشات =====
+        function goTo(screenId) {
+            document.querySelectorAll('.screen').forEach(s => {
+                s.classList.remove('active');
+            });
+            const newScreen = document.getElementById(screenId);
+            if (newScreen) {
+                newScreen.classList.add('active');
+                newScreen.querySelectorAll('.fade-in-up, .stagger-1, .stagger-2, .stagger-3').forEach(el => {
+                    el.style.animation = 'none';
+                    void el.offsetHeight;
+                    el.style.animation = '';
+                });
+            }
+        }
+
+        // ===== الرقم السري =====
+        let passcode = '';
+        const correctPasscode = '119';
+
+        function enterDigit(digit) {
+            if (passcode.length < 3) {
+                passcode += digit;
+                updateDisplay();
+                if (passcode.length === 3) {
+                    setTimeout(checkPasscode, 300);
+                }
+            }
+        }
+
+        function clearPasscode() {
+            passcode = '';
+            updateDisplay();
+        }
+
+        function retryPasscode() {
+            clearPasscode();
+            goTo('screen-passcode');
+        }
+
+        function updateDisplay() {
+            for (let i = 0; i < 3; i++) {
+                const dot = document.getElementById('dot-' + i);
+                if (i < passcode.length) {
+                    dot.textContent = '•';
+                    dot.classList.add('filled');
+                } else {
+                    dot.textContent = '';
+                    dot.classList.remove('filled');
+                }
+            }
+        }
+
+        function checkPasscode() {
+            if (passcode === correctPasscode) {
+                const introCat = document.getElementById('intro-cat');
+                if (introCat) introCat.classList.add('happy');
+                setTimeout(() => goTo('screen-nickname'), 500);
+            } else {
+                goTo('screen-wrong');
+            }
+            passcode = '';
+            updateDisplay();
+        }
+
+        // ===== منع القائمة السياقية على الصور =====
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('contextmenu', e => e.preventDefault());
+        });
+
+        // ===== تهيئة أولية =====
+        updateDisplay();
+    </script>
+</body>
+</html>
+  
