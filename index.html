@@ -6,6 +6,11 @@
 <title>Happy Birthday Hazoona ❤️</title>
 <link rel="preload" as="image" href="1.jpg">
 <link rel="preload" as="image" href="2.jpg">
+<link rel="preload" as="image" href="3.jpg">
+<link rel="preload" as="image" href="4.jpeg">
+<link rel="preload" as="image" href="5.jpeg">
+<link rel="preload" as="image" href="6.jpeg">
+<link rel="preload" as="image" href="7.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&family=Tajawal:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg-dark:#FFF0F5;--bg-mid:#FFE4E1;--bg-light:#FADADD;--beige:#FAEBD7;--beige-light:#FFF8DC;--beige-dark:#E6B8B8;--gold:#FF85A2;--gold-light:#FFD1DC;--error:#E57373;--success:#81C784;--text-main:#8B4513;--text-light:#A0522D}
@@ -75,6 +80,19 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:700;margin-bottom:15px;let
 .cat.happy .cat-mouth{width:25px;height:15px;background:var(--gold);border:none;border-radius:0 0 25px 25px;top:52px}
 .cat.happy .cat-mouth::before,.cat.happy .cat-mouth::after{display:none}
 .photos-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;align-items:center;margin:20px 0;min-height:250px}
+.photo-link{display:block;text-decoration:none;color:inherit;cursor:zoom-in;transition:transform .25s ease;outline:none}
+.photo-link:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:10px}
+.photo-link:active{transform:scale(.97)}
+.polaroid img{transition:filter .3s ease,transform .3s ease}
+.photo-link:hover img{filter:saturate(1.12) brightness(1.04);transform:scale(1.02)}
+.photo-reveal{animation:photoReveal .7s cubic-bezier(.2,.8,.2,1) both}
+@keyframes photoReveal{from{opacity:0;transform:translateY(22px) scale(.94) rotate(-2deg)}to{opacity:1;transform:translateY(0) scale(1) rotate(0)}}
+.next-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px}
+.next-preview{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.85);box-shadow:0 2px 8px rgba(139,69,19,.2)}
+.lightbox{position:fixed;inset:0;background:rgba(55,20,35,.82);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:100}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-width:min(92vw,620px);max-height:82vh;border:8px solid #fff8dc;border-radius:10px;box-shadow:0 20px 70px rgba(0,0,0,.4);object-fit:contain}
+.lightbox-close{position:absolute;top:18px;right:22px;width:44px;height:44px;border:0;border-radius:50%;background:#fff8dc;color:#8b4513;font-size:1.5rem;cursor:pointer}
 .polaroid{background:var(--beige-light);padding:12px 12px 40px 12px;border-radius:8px;box-shadow:0 8px 25px rgba(139,69,19,.12);transition:all .4s ease;position:relative;max-width:160px}
 .polaroid:hover{transform:scale(1.05) rotate(0deg) !important;z-index:10}
 .polaroid img{width:100%;height:140px;object-fit:cover;border-radius:4px;display:block;background:linear-gradient(45deg,#FFE4E1,#FADADD)}
@@ -110,6 +128,10 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:700;margin-bottom:15px;let
 </head>
 <body>
 <div id="butterflies"></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="عرض الصورة">
+<button class="lightbox-close" type="button" aria-label="إغلاق الصورة" onclick="closeLightbox()">×</button>
+<img id="lightbox-image" src="" alt="">
+</div>
 
 <div class="screen active" id="screen-intro">
 <div class="card fade-in-up">
@@ -166,10 +188,10 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:700;margin-bottom:15px;let
 <div class="card" style="max-width:400px;">
 <div class="photo-caption">يزن الجميل ❤️</div>
 <div class="photos-grid layout-side">
-<div class="polaroid stagger-1"><img src="1.jpg" alt="Yazan 1"></div>
-<div class="polaroid stagger-2"><img src="2.jpg" alt="Yazan 2"></div>
+<a class="photo-link polaroid stagger-1" href="1.jpg" onclick="openLightbox(event, this)" aria-label="تكبير صورة يزن 1"><img src="1.jpg" alt="Yazan 1" loading="eager"></a>
+<a class="photo-link polaroid stagger-2" href="2.jpg" onclick="openLightbox(event, this)" aria-label="تكبير صورة يزن 2"><img src="2.jpg" alt="Yazan 2" loading="eager"></a>
 </div>
-<button class="btn" onclick="goTo('screen-photos-1')">التالي ❤️</button>
+<button class="btn next-btn" onclick="goTo('screen-photos-1')"><img class="next-preview" src="3.jpg" alt="">التالي ❤️</button>
 </div>
 </div>
 
@@ -177,10 +199,10 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:700;margin-bottom:15px;let
 <div class="card" style="max-width:400px;">
 <div class="photo-caption">البروو اللطيف ❤️</div>
 <div class="photos-grid layout-stack">
-<div class="polaroid stagger-1"><img src="3.jpg" alt="Yazan 3"></div>
-<div class="polaroid stagger-2"><img src="4.jpeg" alt="Yazan 4"></div>
+<a class="photo-link polaroid stagger-1" href="3.jpg" onclick="openLightbox(event, this)" aria-label="تكبير صورة يزن 3"><img src="3.jpg" alt="Yazan 3" loading="eager"></a>
+<a class="photo-link polaroid stagger-2" href="4.jpeg" onclick="openLightbox(event, this)" aria-label="تكبير صورة يزن 4"><img src="4.jpeg" alt="Yazan 4" loading="eager"></a>
 </div>
-<button class="btn" onclick="goTo('screen-photos-2')">التالي ❤️</button>
+<button class="btn next-btn" onclick="goTo('screen-photos-2')"><img class="next-preview" src="5.jpeg" alt="">التالي ❤️</button>
 </div>
 </div>
 
@@ -188,10 +210,10 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:700;margin-bottom:15px;let
 <div class="card" style="max-width:400px;">
 <div class="photo-caption">أحن يزن ❤️</div>
 <div class="photos-grid layout-diagonal">
-<div class="polaroid stagger-1"><img src="5.jpeg" alt="Yazan 5"></div>
-<div class="polaroid stagger-2"><img src="6.jpeg" alt="Yazan 6"></div>
+<a class="photo-link polaroid stagger-1" href="5.jpeg" onclick="openLightbox(event, this)" aria-label="تكبير صورة يزن 5"><img src="5.jpeg" alt="Yazan 5" loading="eager"></a>
+<a class="photo-link polaroid stagger-2" href="6.jpeg" onclick="openLightbox(event, this)" aria-label="تكبير صورة يزن 6"><img src="6.jpeg" alt="Yazan 6" loading="eager"></a>
 </div>
-<button class="btn" onclick="goTo('screen-photos-3')">التالي ❤️</button>
+<button class="btn next-btn" onclick="goTo('screen-photos-3')"><img class="next-preview" src="7.jpg" alt="">التالي ❤️</button>
 </div>
 </div>
 
@@ -199,9 +221,9 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:700;margin-bottom:15px;let
 <div class="card" style="max-width:400px;">
 <div class="photo-caption">أحلى مهندس ❤️</div>
 <div class="photos-grid layout-center">
-<div class="polaroid stagger-1"><img src="7.jpg" alt="Yazan 7"></div>
+<a class="photo-link polaroid stagger-1" href="7.jpg" onclick="openLightbox(event, this)" aria-label="تكبير صورة يزن 7"><img src="7.jpg" alt="Yazan 7" loading="eager"></a>
 </div>
-<button class="btn" onclick="goTo('screen-final')">للختام ❤️</button>
+<button class="btn next-btn" onclick="goTo('screen-final')"><span aria-hidden="true">✨</span>للختام ❤️</button>
 </div>
 </div>
 
@@ -216,7 +238,15 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:700;margin-bottom:15px;let
 var butterfliesContainer=document.getElementById('butterflies');
 var butterflyEmojis=['🦋','✨','🤍'];
 for(var i=0;i<15;i++){var b=document.createElement('div');b.className='butterfly';b.textContent=butterflyEmojis[Math.floor(Math.random()*butterflyEmojis.length)];b.style.left=Math.random()*100+'vw';b.style.top=Math.random()*100+'vh';b.style.animationDelay=Math.random()*15+'s';b.style.animationDuration=(10+Math.random()*10)+'s';butterfliesContainer.appendChild(b);}
-function goTo(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});document.getElementById(id).classList.add('active');}
+function goTo(id){
+ document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
+ var next=document.getElementById(id); next.classList.add('active');
+ next.querySelectorAll('.polaroid').forEach(function(photo,i){photo.classList.remove('photo-reveal');void photo.offsetWidth;photo.style.animationDelay=(i*.12)+'s';photo.classList.add('photo-reveal');});
+}
+function openLightbox(event, link){event.preventDefault();var image=document.getElementById('lightbox-image');image.src=link.href;image.alt=link.querySelector('img').alt;document.getElementById('lightbox').classList.add('open');}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.getElementById('lightbox-image').src='';}
+document.getElementById('lightbox').addEventListener('click',function(event){if(event.target===this)closeLightbox();});
+document.addEventListener('keydown',function(event){if(event.key==='Escape')closeLightbox();});
 var currentPasscode='';
 var correctPasscode='119';
 function enterDigit(d){if(currentPasscode.length<3){currentPasscode+=d;updatePasscodeDisplay();if(currentPasscode.length===3){setTimeout(function(){if(currentPasscode===correctPasscode){goTo('screen-nickname');}else{goTo('screen-wrong');}},300);}}}
